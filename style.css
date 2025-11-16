@@ -59,16 +59,16 @@
             height: 100px;
         }
         
-       .logo-container {
+      .logo-container {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 15px; /* slightly more spacing for elegance */
     flex-shrink: 0;
     transition: transform 0.3s ease;
 }
 
 .logo-container:hover {
-    transform: translateY(-2px);
+    transform: translateY(-3px); /* slightly more lift for a premium feel */
 }
 
 .logo-container a {
@@ -78,25 +78,26 @@
 }
 
 .logo-container img {
-    height: 85px; /* increased size for more presence */
+    height: 120px; /* bigger for more presence */
     width: auto;
-    max-width: 260px;
+    max-width: 300px; /* ensures it stays proportionate */
     object-fit: contain;
-    transition: all 0.3s ease;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+    transition: all 0.4s ease;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.25));
 }
 
 .logo-container img:hover {
-    transform: scale(1.03);
-    filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.25));
+    transform: scale(1.05); /* subtle upscale on hover */
+    filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.3));
 }
 
+/* Optional: adjust text next to logo if you have a logo-text element */
 .logo-text {
     font-family: 'Playfair Display', serif;
-    font-size: 2.1rem;
+    font-size: 2.2rem; /* bigger, more elegant */
     font-weight: 700;
     color: var(--accent-gold);
-    letter-spacing: 1.4px;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
     white-space: nowrap;
 }
@@ -239,13 +240,15 @@
             }
             
             .logo-container img {
-                height: 58px;
-                max-width: 200px;
-            }
-            
-            .logo-text {
-                font-size: 1.65rem;
-            }
+        height: 150px;       /* slightly larger than 58px for better presence */
+        max-width: 220px;   /* scale proportionally */
+        width: auto;
+    }
+
+    .logo-text {
+        font-size: 1.9rem;  /* slightly bigger for balance */
+    }
+
             
             .nav-links {
                 gap: 2rem;
@@ -266,14 +269,19 @@
                 height: 85px;
             }
             
-            .logo-container img {
-                height: 55px;
-                max-width: 180px;
-            }
-            
-            .logo-text {
-                font-size: 1.5rem;
-            }
+          .logo-container img {
+        height: 120px;       /* slightly taller for better presence */
+        max-width: 200px;   /* proportional width */
+        width: auto;
+        transition: all 0.3s ease;
+    }
+
+    .logo-text {
+        font-size: 1.7rem;  /* slightly larger and more readable */
+        font-weight: 700;
+        letter-spacing: 1px;
+        color: var(--accent-gold);
+    }
             
             .mobile-toggle {
                 display: flex;
@@ -333,13 +341,18 @@
             }
             
             .logo-container img {
-                height: 50px;
-                max-width: 160px;
-            }
-            
-            .logo-text {
-                font-size: 1.3rem;
-            }
+        height: 95px;        /* slightly taller for better visibility on small screens */
+        max-width: 170px;    /* proportional width */
+        width: auto;
+        transition: all 0.3s ease;
+    }
+
+    .logo-text {
+        font-size: 1.4rem;   /* readable but still balanced */
+        font-weight: 700;
+        letter-spacing: 0.8px;
+        color: var(--accent-gold);
+    }
             
             .nav-main {
                 top: 75px;
@@ -358,14 +371,19 @@
                 padding: 0 1.25rem;
             }
             
-            .logo-container img {
-                height: 45px;
-                max-width: 140px;
-            }
-            
-            .logo-text {
-                font-size: 1.15rem;
-            }
+           .logo-container img {
+        height: 90px;       /* slightly taller for visibility */
+        max-width: 150px;   /* maintain proportion */
+        width: auto;
+        transition: all 0.3s ease;
+    }
+
+    .logo-text {
+        font-size: 1.2rem;  /* readable yet balanced with the small logo */
+        font-weight: 700;
+        letter-spacing: 0.7px;
+        color: var(--accent-gold);
+    }
             
             .nav-main {
                 top: 70px;
