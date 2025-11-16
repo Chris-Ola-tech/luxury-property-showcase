@@ -45,6 +45,65 @@ const mobileToggle = document.getElementById('mobileToggle');
 
 
 
+
+function animateCount(element, target, suffix, duration = 2000) {
+            let startTime = null;
+            const startValue = 0;
+            
+            function animation(currentTime) {
+                if (!startTime) startTime = currentTime;
+                const elapsedTime = currentTime - startTime;
+                const progress = Math.min(elapsedTime / duration, 1);
+                
+                // Easing function for smooth animation
+                const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+                const currentValue = Math.floor(easeOutQuart * target);
+                
+                element.textContent = currentValue + suffix;
+                
+                if (progress < 1) {
+                    requestAnimationFrame(animation);
+                } else {
+                    element.textContent = target + suffix;
+                }
+            }
+            
+            requestAnimationFrame(animation);
+        }
+        
+        // Intersection Observer to detect when section enters viewport
+        const observerOptions = {
+            threshold: 0.5, // Trigger when 50% of the section is visible
+            rootMargin: '0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
+                    // Mark as animated to prevent retriggering
+                    entry.target.classList.add('animated');
+                    
+                    // Find all stat numbers and animate them
+                    const statNumbers = entry.target.querySelectorAll('.stat-number');
+                    statNumbers.forEach(stat => {
+                        const target = parseInt(stat.getAttribute('data-target'));
+                        const suffix = stat.getAttribute('data-suffix');
+                        animateCount(stat, target, suffix);
+                    });
+                    
+                    // Stop observing after animation
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        
+        // Start observing the stats section
+        const statsSection = document.querySelector('.parallax-stats');
+        observer.observe(statsSection);
+
+
+
+
 document.addEventListener('DOMContentLoaded', function() {
     const searchForm = document.getElementById('propertySearchForm');
     const quickFilterButtons = document.querySelectorAll('.quick-filter-btn');
